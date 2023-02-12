@@ -2,16 +2,19 @@ const crypto = require('../utils/crypto');
 const uuid = require('uuid');
 const sequelize = require('../models/').sequelize;
 const initModels = require('../models/init-models');
+const {pool} = require('../db/db')
 
 const models = initModels(sequelize)
 
 const getAllUsers = async () => {
-    const users = await models.users.findAll({
-        attributes: {
-            exclude: ["password"]
-        }
-    })
-    // select * from users;
+    // const users = await models.users.findAll({
+    //     attributes: {
+    //         exclude: ["password"]
+    //     }
+    // })
+    //  select * from users;
+    // return users
+    const [users] = await pool.query(`SELECT * from users`);
     return users
 }
 
