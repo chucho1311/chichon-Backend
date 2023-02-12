@@ -5,6 +5,7 @@ const models = initModels(sequelize)
 const getAllBucaramangaRestaurants = async () => {
     const users = await models.bucaramanga.findAll()
     // select * from users;
+    console.log(users);
     return users
 }
 
