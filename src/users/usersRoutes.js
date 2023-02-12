@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const passport = require('passport');
-const config = require('../config');
 const userServicesHandler = require('./usersServices');
 
 router 
