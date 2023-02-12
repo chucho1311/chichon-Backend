@@ -1,44 +1,39 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('posts', {
+  return sequelize.define('florida', {
     id: {
       type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    price: {
-      type: DataTypes.DOUBLE,
-      allowNull: false
-    },
-    user_id: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
-    status: {
+    photo: {
       type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: "active"
+      allowNull: true
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    number: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    instagram: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'posts',
+    tableName: 'florida',
     schema: 'public',
     timestamps: false,
     indexes: [
       {
-        name: "posts_pkey",
+        name: "florida_pkey",
         unique: true,
         fields: [
           { name: "id" },

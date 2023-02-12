@@ -6,10 +6,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    user: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -22,20 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    role: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: "normal"
-    },
-    profile_img_url: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    status: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: "active"
     }
   }, {
     sequelize,

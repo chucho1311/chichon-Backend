@@ -10,10 +10,16 @@ const getAllUsers = async (req, res) => {
     res.status(200).json(users)
 }
 
-const getMyUserData = (req, res) => {
-    console.log('this is the authenticated user email:', req.user.email)
-    //const [user, err] = toPromise(userControllers.getUserById())
-    res.status(200).json({ message: 'all good', data: req.user })
+const getMyUserData = async (req, res) => {
+    const {
+        params: { userId },
+    } = req;
+    const [user, err] = await toPromise(userControllers.getUserById(userId))
+    if (err || !user) {
+        res.status(400).json({ message: 'Ups, ocurrio un error' })
+    }
+    console.log(user);
+    res.status(200).json(user);
 }
 
 const createUser = async (req, res) => {
@@ -23,6 +29,18 @@ const createUser = async (req, res) => {
     }
     console.log(newUser);
     res.status(200).json(newUser);
+}
+
+const updateUser = async (req, res) => {
+    const {
+        params: { userId },
+    } = req;
+    const [updatedUser, error] = await toPromise(userControllers.updateUser(userId,req.body))
+    if (error || !updatedUser) {
+        res.status(400).json({ message: 'Ups, ocurrio un error' })
+    }
+    console.log(updatedUser);
+    res.status(200).json(updatedUser);
 }
 
 const deleteUser = async (req,res) => {
@@ -43,5 +61,6 @@ module.exports = {
     getAllUsers,
     getMyUserData,
     createUser,
+    updateUser,
     deleteUser
 }

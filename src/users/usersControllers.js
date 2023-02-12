@@ -16,8 +16,9 @@ const getAllUsers = async () => {
 }
 
 const getUserById = async (id) => {
-    const user = await models.users.findByPk(id, {
+    const user = await models.users.findOne( {
         attributes: {
+            id,
             exclude: ["password"]
         }
     })
