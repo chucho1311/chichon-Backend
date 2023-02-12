@@ -17,7 +17,7 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1', userRouter)
 
 //? Administrar rutas de ciudades
-app.use('/api/v1/', cityRouter)
+app.use('/api/v1', cityRouter)
 
 app.listen(config.port, () => {
     console.log(`Server started at port ${config.port}`)
