@@ -17,11 +17,11 @@ module.exports = {
     },
     production: {
         url: config.db.production.url,
-        use_env_variable: config.db.production.url,
-        dialect: 'postgres',
-        protocol: 'postgres',
-        ssl: true,
-        dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+        // use_env_variable: config.db.production.url,
+        // dialect: 'postgres',
+        // protocol: 'postgres',
+        // ssl: true,
+        // dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
     },
 }
 
