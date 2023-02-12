@@ -4,9 +4,9 @@ const userControllers = require('./usersControllers')
 const getAllUsers = async (req, res) => {
 
     const [users, error] = await toPromise(userControllers.getAllUsers())
-    if (error || !users) {
-        res.status(400).json({ message: 'Ups, ocurrio un error' })
-    }
+    // if (error || !users) {
+    //     res.status(400).json({ message: 'Ups, ocurrio un error' })
+    // }
     // res.status(200).json(users)
     return res.status(200).json(users);
 }
